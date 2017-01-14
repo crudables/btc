@@ -1,5 +1,7 @@
 package com.ables.btc.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,8 +21,29 @@ public class UserServiceImpl implements UserService {
 		
 	}
 	
+	@Override
 	public User findByUsername(String username){
+		return userRepo.findByUsername(username);
+	}
+
+	@Override
+	public void save(User user) {
+		// TODO Auto-generated method stub
 		
+		
+	}
+
+	@Override
+	public int deleteByUsername(String username) {
+		// TODO Auto-generated method stub
+		return userRepo.deleteByUsername(username);
+		
+	}
+
+	@Override
+	public List<User> findAllUsers() {
+		// TODO Auto-generated method stub
+		return userRepo.findAll();
 	}
 	
 
