@@ -1,5 +1,7 @@
 package com.ables.btc.test;
 
+import static org.junit.Assert.assertNotNull;
+
 import org.junit.Test;
 
 import com.ables.btc.model.User;
@@ -21,5 +23,6 @@ public class RepoTest {
 		user.setPhone("09887765");
 		user.setUsername("ables");
 		 userRepo.save(user);
+		 assertNotNull(user.getId());
 	}
 }
