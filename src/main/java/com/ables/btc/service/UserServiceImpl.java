@@ -23,7 +23,8 @@ public class UserServiceImpl implements UserService {
 	
 	@Override
 	public User findByUsername(String username){
-		return userRepo.findByUsername(username);
+		return new User();
+//		return userRepo.findByUsername(username);
 	}
 
 	@Override
@@ -36,7 +37,8 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public int deleteByUsername(String username) {
 		// TODO Auto-generated method stub
-		return userRepo.deleteByUsername(username);
+		return 0;
+//		return userRepo.deleteByUsername(username);
 		
 	}
 

@@ -1,47 +1,25 @@
 package com.ables.btc.test;
 
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
-
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
-
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-
-import org.springframework.test.context.transaction.TransactionConfiguration;
-
-import org.springframework.transaction.annotation.Transactional;
 
 import com.ables.btc.model.User;
 import com.ables.btc.repo.UserRepo;
+import com.mmnaseri.utils.spring.data.dsl.factory.RepositoryFactoryBuilder;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration()
-@Transactional
-@TransactionConfiguration(defaultRollback = true)
 public class RepoTest {
-	@Autowired
-	private UserRepo userRepo;
 	
 	@Test
-	public void testCreateUser(){
+	public void testCreate(){
+		UserRepo userRepo = RepositoryFactoryBuilder.builder().mock(UserRepo.class);
+		
 		User user = new User();
+		user.setAddress("Ago palace");
+		user.setEmail("crudables@yahoo.com");
 		user.setFirstName("Saheed");
 		user.setLastName("Awolaju");
-		user.setEmail("crudables@yahoo.com");
-		user.setPhone("08102938455");
-		user.setAddress("Ago Palace way");
-		user.setUsername("Ables");
-		
-		assertNull(user.getId());
-		userRepo.save(user);
-		
-		assertNotNull(user.getId());
-		assertTrue(user.getId() > 0);
-//		
-				
+		user.setPassword("cmaganag");
+		user.setPhone("09887765");
+		user.setUsername("ables");
+		 userRepo.save(user);
 	}
 }
